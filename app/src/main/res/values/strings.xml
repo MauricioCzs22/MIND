@@ -1,0 +1,46 @@
+<resources>
+
+
+
+
+
+
+    <!--PANTALLA PRINCIPAL-->
+    <string name="app_name">MIND AI</string>
+    <string name="tprincipal">MIND \n AI</string>
+    <string name="logo">ESTE ES EL LOGO</string>
+
+
+    <!--PANTALLA INICIO DE SESION-->
+    <string name="title_login">INICIO DE SESION</string>
+    <string name="leyenda_login">INGRESA TU CORREO Y CONTRASEÑA</string>
+    <string name="btnRegistrar">REGISTRAR</string>
+    <string name="btnIngresar">INGRESAR</string>
+    <string name="btnCancelar">CANCELAR</string>
+    <string name="prubea">prueba</string>
+    <string name="prueba">prueba</string>
+
+
+
+    <!--PANTALLA DE INGRESO-->
+    <string name="bienvenida">BIENVENIDO A  \n MIND AI </string>
+    <string name="registra">REGISTRATE</string>
+    <string name="btnIingresar">Ingresar</string>
+    <string name="btnCcancelar">Cancelar</string>
+
+
+    <!--PANTALLA DE REGISTRO-->
+    <string name="title_register">REGISTRO</string>
+    <string name="etEmail">CORREO INSTITUCIONAL</string>
+    <string name="etPassword">CONTRASEÑA</string>
+    <string name="nombreC">Nombre Completo</string>
+    <string name="matricula">Matrícula</string>
+    <string name="semestre">Semestre</string>
+    <string name="btnaceptar">Aceptar</string>
+
+
+    <!--TERMINOS Y CONDICIONES-->
+    <string name="TCondic">Ver Términos y Condiciones</string>
+
+
+</resources>
