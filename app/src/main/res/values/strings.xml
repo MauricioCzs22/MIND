@@ -23,7 +23,7 @@
 
 
     <!--PANTALLA DE INGRESO-->
-    <string name="bienvenida">BIENVENIDO A  \n HOLAAA </string>
+    <string name="bienvenida">BIENVENIDO A  \n MIND AI </string>
     <string name="registra">REGISTRATE</string>
     <string name="btnIingresar">Ingresar</string>
     <string name="btnCcancelar">Cancelar</string>
