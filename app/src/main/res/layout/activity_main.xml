@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:background="@drawable/f_pantalla"
     tools:context=".MainActivity">
-<!--ESPERO QUE ESTO TAMBIEN LLEGUE-->
+<!--Prueba  para el jordi desde mi compu-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
