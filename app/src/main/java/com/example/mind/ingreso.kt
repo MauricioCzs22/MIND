@@ -13,7 +13,6 @@ class ingreso : AppCompatActivity() {
 
     private lateinit var txRegis: TextView
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingreso)
@@ -49,5 +48,4 @@ class ingreso : AppCompatActivity() {
         val intent = Intent(this, registro::class.java)
         startActivity(intent)
     }
-
 }

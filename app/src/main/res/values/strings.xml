@@ -1,10 +1,6 @@
 <resources>
 
 
-
-
-
-
     <!--PANTALLA PRINCIPAL-->
     <string name="app_name">MIND AI</string>
     <string name="tprincipal">MIND \n AI</string>
@@ -19,7 +15,6 @@
     <string name="btnCancelar">CANCELAR</string>
     <string name="prubea">prueba</string>
     <string name="prueba">prueba</string>
-
 
 
     <!--PANTALLA DE INGRESO-->
@@ -41,6 +36,13 @@
 
     <!--TERMINOS Y CONDICIONES-->
     <string name="TCondic">Ver Términos y Condiciones</string>
+
+    <!--MENU-->
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+
+
+
 
 
 </resources>
