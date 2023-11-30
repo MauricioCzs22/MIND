@@ -1,5 +1,6 @@
 package com.example.mind
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -29,9 +30,11 @@ class registro : AppCompatActivity() {
         btnCancelar.setOnClickListener {
             onCancelButtonClicked()
         }
-
-
-
+        //Boton Aceptar
+        val btnAceptar: Button = findViewById(R.id.btnAceptar)
+        btnAceptar.setOnClickListener {
+            PrincipalView()
+        }
     }
     override fun onBackPressed() {
         super.onBackPressed()
@@ -39,6 +42,10 @@ class registro : AppCompatActivity() {
     //boton cancelar
     fun onCancelButtonClicked() {
         Toast.makeText(this, "Operación cancelada", Toast.LENGTH_SHORT).show()
+    }
+    private fun PrincipalView(){
+        val intent = Intent(this, PrincipalView::class.java)
+        startActivity(intent)
     }
 
 }
