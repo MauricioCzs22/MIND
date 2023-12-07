@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,100 +12,229 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/retroceso" />
-    <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="600dp"
-        android:layout_marginLeft="28dp"
-        android:background="@drawable/f_ingreso"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/bienvenida"
-            android:textStyle="bold"
-            android:layout_marginTop="30dp"
-            android:textSize="20dp"
-            android:layout_marginLeft="95dp"/>
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="200dp"
-            android:layout_marginLeft="77dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="10dp"
-            app:srcCompat="@drawable/icono" />
-        <EditText
-            android:id="@+id/etNombre"
-            android:layout_width="250dp"
-            android:layout_marginLeft="25dp"
-            android:layout_height="50dp"
-            android:hint="@string/nombreC"
-            android:inputType="textEmailAddress"
-            android:textSize="15dp"/>
-        <EditText
-            android:id="@+id/etMatricula"
-            android:layout_width="250dp"
-            android:layout_marginLeft="25dp"
-            android:layout_height="50dp"
-            android:hint="@string/matricula"
-            android:inputType="textEmailAddress"
-            android:textSize="15dp"/>
-        <EditText
-            android:id="@+id/etCorreo"
-            android:layout_width="250dp"
-            android:layout_marginLeft="25dp"
-            android:layout_height="50dp"
-            android:hint="@string/etEmail"
-            android:inputType="textEmailAddress"
-            android:textSize="15dp"/>
-        <EditText
-            android:id="@+id/etSemestre"
-            android:layout_width="150dp"
-            android:layout_marginLeft="25dp"
-            android:layout_height="25dp"
-            android:background="#053A6A"
-            android:textColorHint="@color/white"
-            android:hint="@string/semestre"
-            android:layout_marginTop="15dp"
-            android:inputType="textEmailAddress"
-            android:textSize="15dp"/>
-        <EditText
-            android:id="@+id/etContrasenia"
-            android:layout_width="250dp"
-            android:layout_marginLeft="25dp"
-            android:layout_height="50dp"
-            android:hint="@string/etPassword"
-            android:textSize="15dp"
-            android:inputType="textPassword"/>
-        <TextView
-            android:id="@+id/txTc"
-            android:layout_width="wrap_content"
-            android:layout_height="25dp"
-            android:layout_marginLeft="25dp"
-            android:textColor="#0368C6"
-            android:text="@string/TCondic"
-            android:textSize="17dp"
-            android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="774dp">
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="25dp"
-            android:layout_marginLeft="5dp">
-            <Button
-                android:id="@+id/btnCancelar"
-                android:layout_width="150dp"
-                android:layout_marginLeft="10dp"
-                android:layout_height="40dp"
-                android:backgroundTint="#053A6A"
-                android:text="@string/btnCcancelar"/>
-            <Button
-                android:id="@+id/btnAceptar"
-                android:layout_width="150dp"
-                android:layout_marginLeft="25dp"
-                android:layout_height="40dp"
-                android:backgroundTint="#053A6A"
-                android:text="@string/btnaceptar"/>
+            android:layout_width="350dp"
+            android:layout_height="600dp"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/f_ingreso"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="95dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/bienvenida"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="200dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="77dp"
+                app:srcCompat="@drawable/icono" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/nombreC"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/ic_user">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNombre"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:imeOptions="actionNext"
+                    android:inputType="text|textCapCharacters"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/matricula"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="9"
+                app:endIconMode="clear_text"
+                app:helperText="SOLO NÚMEROS"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/ic_matricula">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMatricula"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--SOLICITUD DE CORREO-->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/etEmail"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:endIconMode="clear_text"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/ic_correo">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:imeOptions="actionNext"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:scrollHorizontally="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <!--SOLICITUD DE SEMESTRE-->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/semestre"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:helperTextEnabled="true"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/ic_semestre">
+
+                <AutoCompleteTextView
+                    android:id="@+id/etSemestre"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:inputType="none"
+                    app:simpleItems="@array/semester_array" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--SOLICITUD DE CARRERA-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/mnCarrera"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/Carrera"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/ic_semestre">
+
+                <AutoCompleteTextView
+                    android:id="@+id/Etcarrera"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:inputType="none"
+                    app:simpleItems="@array/carreras_array" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--SOLICITUD DE CONTRASEÑA-->
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:hint="@string/etPassword"
+                app:boxBackgroundMode="outline"
+                app:boxCornerRadiusTopEnd="10dp"
+                app:boxCornerRadiusTopStart="10dp"
+                app:endIconMode="password_toggle"
+                app:hintTextColor="@color/black"
+                app:startIconDrawable="@drawable/ic_contra">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="250dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="30dp"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!--VER TERMINOS Y CONDICIONES-->
+            <TextView
+                android:id="@+id/tvTerminos"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginLeft="60dp"
+                android:text="@string/TCondic"
+                android:textColor="#0368C6"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCancelar"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:backgroundTint="#053A6A"
+                    android:text="@string/btnCcancelar" />
+
+                <Button
+                    android:id="@+id/btnAceptar"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="25dp"
+                    android:backgroundTint="#053A6A"
+                    android:text="@string/btnaceptar" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
