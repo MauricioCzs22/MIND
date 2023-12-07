@@ -32,6 +32,7 @@
     <string name="matricula">Matrícula</string>
     <string name="semestre">Semestre</string>
     <string name="btnaceptar">Aceptar</string>
+    <string name="Carrera">CARRERA</string>
 
 
     <!--TERMINOS Y CONDICIONES-->
@@ -40,9 +41,6 @@
     <!--MENU-->
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
-
-
-
 
 
 </resources>

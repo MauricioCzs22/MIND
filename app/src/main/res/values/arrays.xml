@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="semester_array">
+        <item>SEMESTRE 1</item>
+        <item>SEMESTRE 2</item>
+        <item>SEMESTRE 3</item>
+        <item>SEMESTRE 4</item>
+        <item>SEMESTRE 5</item>
+        <item>SEMESTRE 6</item>
+        <item>SEMESTRE 7</item>
+        <item>SEMESTRE 8</item>
+        <item>SEMESTRE 9</item>
+    </string-array>
+
+    <string-array name="carreras_array">
+        <item>INGENIERÍA ELECTROMECÁNICA</item>
+        <item>INGENIERÍA INDUSTRIAL</item>
+        <item>INGENIERÍA EN SISTEMAS COMPUTACIONALES</item>
+        <item>INGENIERÍA ELECTRÓNICA</item>
+        <item>INGENIERÍA EN INFORMÁTICA</item>
+        <item>INGENIERÍA EN ADMINISTRACIÓN</item>
+    </string-array>
+</resources>
