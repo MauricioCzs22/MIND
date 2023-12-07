@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 
 class registro : AppCompatActivity() {
@@ -35,6 +36,11 @@ class registro : AppCompatActivity() {
         btnAceptar.setOnClickListener {
             PrincipalView()
         }
+        //Boton terminos
+        val tvTerminos: TextView = findViewById(R.id.tvTerminos)
+        tvTerminos.setOnClickListener{
+            Terminos()
+        }
     }
     override fun onBackPressed() {
         super.onBackPressed()
@@ -45,6 +51,10 @@ class registro : AppCompatActivity() {
     }
     private fun PrincipalView(){
         val intent = Intent(this, PrincipalView::class.java)
+        startActivity(intent)
+    }
+    private fun Terminos(){
+        val intent = Intent(this, Terminos::class.java)
         startActivity(intent)
     }
 
