@@ -9,7 +9,7 @@
     tools:context=".ingreso">
     <ImageView
         android:id="@+id/btnRetro"
-        android:layout_width="wrap_content"
+        android:layout_width="600dp"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/retroceso" />
     <LinearLayout
