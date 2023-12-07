@@ -7,18 +7,26 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class registro : AppCompatActivity() {
 
-    private lateinit var etNombre: EditText
-    private lateinit var etMatricula: EditText
-    private lateinit var etCorreo: EditText
-    private lateinit var etSemestre: EditText
-    private lateinit var etContrasenia: EditText
+    private lateinit var mAuth: FirebaseAuth
+    private lateinit var mDatabase: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
+
+        mAuth = FirebaseAuth.getInstance()
+
+        mDatabase = FirebaseDatabase.getInstance().getReference()
+
+
+
+
         //BOTONES
         //Boton retroceso
         val btnRetro: ImageView = findViewById(R.id.btnRetro)
