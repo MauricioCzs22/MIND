@@ -69,7 +69,7 @@ class ingreso : AppCompatActivity() {
                      .addOnCompleteListener {
                          if (it.isSuccessful) {
                              val intent1: Intent =
-                                 Intent(applicationContext, Terminos::class.java).apply {
+                                 Intent(applicationContext, PrincipalView::class.java).apply {
                                      putExtra("email", it.result?.user?.email ?: "")
                                  }
                              startActivity(intent1)
