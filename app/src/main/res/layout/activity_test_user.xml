@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="20dp"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    android:paddingTop="20dp"
+    android:orientation="vertical"
+    tools:context=".testUser">
+
+    <LinearLayout
+        android:paddingBottom="20dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="28dp"
+        android:background="@drawable/f_ingreso"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/label_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test de estrés"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/question"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:id="@+id/view"
+            android:layout_below="@id/text_question"
+            android:layout_marginTop="10sp"
+            android:background="@color/black"/>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view"
+            android:id="@+id/rdgroup"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            >
+
+            <RadioButton
+                android:id="@+id/radio_button_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:text="radio1" />
+            <RadioButton
+                android:id="@+id/radio_button_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="radio2"/>
+            <RadioButton
+                android:id="@+id/radio_button_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="radio3"/>
+            <RadioButton
+                android:id="@+id/radio_button_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="radio4"/>
+            <RadioButton
+                android:id="@+id/radio_button_5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="radio5"/>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnNext"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rdgroup"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/check"
+            app:strokeColor="#FFFFFF" />
+    </LinearLayout>
+</RelativeLayout>

@@ -7,22 +7,26 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import org.w3c.dom.Text
 
 class ingreso : AppCompatActivity() {
 
     private lateinit var txRegis: TextView
+    private lateinit var btnIngresar: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingreso)
+
 
         //boton retorno
         val btnRetro: ImageView = findViewById(R.id.btnRetro)
         btnRetro.setOnClickListener{
             onBackPressed()
         }
-        //boton cancelar pruea
+        //boton cancelar prueba
         val btnCancelar: Button = findViewById(R.id.btnCancelar)
         btnCancelar.setOnClickListener {
             onCancelButtonClicked()
@@ -31,6 +35,14 @@ class ingreso : AppCompatActivity() {
         txRegis = findViewById(R.id.txRegis)
         txRegis.setOnClickListener {
             registro()
+        }
+        /*btnIngresar = findViewById(R.id.btnIngresar)
+        btnIngresar.setOnClickListener {
+            testUser()
+        }*/
+        btnIngresar = findViewById(R.id.btnIngresar)
+        btnIngresar.setOnClickListener{
+            showHelloDialog()
         }
 
     }
@@ -46,6 +58,29 @@ class ingreso : AppCompatActivity() {
     }
     private fun registro(){
         val intent = Intent(this, registro::class.java)
+        startActivity(intent)
+    }
+    private fun testUser(){
+        val intent = Intent(this, testUser::class.java)
+        startActivity(intent)
+    }
+    private fun showHelloDialog() {
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder
+            .setTitle("¡Hola!")
+            .setMessage("Antes de comenzar, queremos darte la bienvenida a MindAI, estas apunto de responder un test de 14 preguntas que determinarán tu nivel de estrés")
+            .setPositiveButton("Continuar") { dialog, which ->
+                // Al hacer clic en "Continuar", inicia la actividad testUser
+                startTestUserActivity()
+            }
+            .setCancelable(false)  // No permitir que el usuario cierre el diálogo al tocar fuera de él
+
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
+
+    private fun startTestUserActivity() {
+        val intent = Intent(this, testUser::class.java)
         startActivity(intent)
     }
 }

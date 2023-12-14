@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Mind"
         tools:targetApi="31">
         <activity
+            android:name=".testUser"
+            android:exported="false" />
+        <activity
             android:name=".Terminos"
             android:exported="false" />
         <activity

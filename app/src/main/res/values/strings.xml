@@ -42,5 +42,9 @@
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
 
+    <!--TEST-->
+    <string name="question">Pregunta</string>
+    <string name="check">Siguiente</string>
+
 
 </resources>
