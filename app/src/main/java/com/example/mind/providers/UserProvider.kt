@@ -11,14 +11,14 @@ import kotlin.collections.HashMap
 
 class UserProvider {
     private var mDatabase: DatabaseReference = FirebaseDatabase.getInstance().getReference().child("Users")
-
+/*
     public fun create(user: Users) : Task<Void>?{
-
+/*
         var map : HashMap<String, Any>
                 = HashMap<String, Any> ()
 
         map.put("Nombre", user.Nombre)
-        map.put("Correo", user.Email)
+        map.put("Correo", user.Email)*/
 
         return mDatabase.child(user.IdUser).setValue(map)
     }
@@ -33,11 +33,10 @@ class UserProvider {
         user.Semestre?.let { map.put("semestre", it) }
         user.Carrera?.let { map.put("carrera",it) }
 
-
         return user.IdUser?.let { mDatabase.child(it).updateChildren(map) }
     }
     public fun getUser(idUser: String) : DatabaseReference{
         return mDatabase.child(idUser)
     }
-
+*/
 }

@@ -34,10 +34,12 @@ class PrincipalView : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.nav_item1 -> Toast.makeText(this, "Item 1", Toast.LENGTH_SHORT).show()
-            R.id.nav_item2 -> Toast.makeText(this, "Item 2", Toast.LENGTH_SHORT).show()
-            R.id.nav_item3 -> Toast.makeText(this, "Item 3", Toast.LENGTH_SHORT).show()
-            R.id.nav_item4 -> Toast.makeText(this, "Item 4", Toast.LENGTH_SHORT).show()
+            R.id.nav_item1 -> Toast.makeText(this, "Cuenta", Toast.LENGTH_SHORT).show()
+            R.id.nav_item2 -> Toast.makeText(this, "Notificaciones", Toast.LENGTH_SHORT).show()
+            R.id.nav_item3 -> Toast.makeText(this, "Ayuda", Toast.LENGTH_SHORT).show()
+            R.id.nav_item4 -> Toast.makeText(this, "Terminos y Condiciones", Toast.LENGTH_SHORT).show()
+            R.id.nav_item5 -> Toast.makeText(this, "Cerrar Sesion", Toast.LENGTH_SHORT).show()
+
         }
         drawer.closeDrawer(GravityCompat.START)
         return true
