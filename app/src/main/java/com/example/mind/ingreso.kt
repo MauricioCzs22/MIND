@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import org.w3c.dom.Text
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 
@@ -23,6 +25,8 @@ class ingreso : AppCompatActivity() {
    private lateinit var mAuth: FirebaseAuth
    private lateinit var mDatabase: DatabaseReference
    private lateinit var btnLogin:Button
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +60,15 @@ class ingreso : AppCompatActivity() {
         txRegis = findViewById(R.id.txRegis)
         txRegis.setOnClickListener {
             registro()
-        }
+        }/*
+        btnIngresar.setOnClickListener{
+            showHelloDialog()
+        }*/
+
+
+
+
+
     }
      //FUNCION LOGIN
      private fun login() {
@@ -92,4 +104,30 @@ class ingreso : AppCompatActivity() {
         val intent = Intent(this, registro::class.java)
         startActivity(intent)
     }
+    private fun testUser(){
+        val intent = Intent(this, testUser::class.java)
+        startActivity(intent)
+    }
+    private fun showHelloDialog() {
+        val alertDialogBuilder = AlertDialog.Builder(this)
+        alertDialogBuilder
+            .setTitle("¡Hola!")
+            .setMessage("Antes de comenzar, queremos darte la bienvenida a MindAI, estas apunto de responder un test de 14 preguntas que determinarán tu nivel de estrés")
+            .setPositiveButton("Continuar") { dialog, which ->
+                // Al hacer clic en "Continuar", inicia la actividad testUser
+                startTestUserActivity()
+            }
+            .setCancelable(false)  // No permitir que el usuario cierre el diálogo al tocar fuera de él
+
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
+    }
+
+    private fun startTestUserActivity() {
+        val intent = Intent(this, testUser::class.java)
+        startActivity(intent)
+    }
+
+
+
 }

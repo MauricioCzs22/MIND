@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AutoCompleteTextView
 import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import com.example.mind.models.Users
 import com.example.mind.providers.UserProvider
@@ -57,6 +59,11 @@ class registro : AppCompatActivity() {
         val btnAceptar: Button = findViewById(R.id.btnRegistrar)
         btnAceptar.setOnClickListener {
             registroUsuario()
+        }
+        //Boton terminos
+        val tvTerminos: TextView = findViewById(R.id.tvTerminos)
+        tvTerminos.setOnClickListener{
+            Terminos()
         }
     }
     override fun onBackPressed() {
@@ -136,6 +143,13 @@ class registro : AppCompatActivity() {
                 }
             )
         }
+
+
+
+
+
+
+
         /*
     private fun saveUser(userNew: Users) {        mUserProvider.create(userNew)?.addOnCompleteListener(
             OnCompleteListener {
@@ -166,4 +180,19 @@ class registro : AppCompatActivity() {
     /*
         */
 
-}}
+}
+    private fun PrincipalView(){
+        val intent = Intent(this, PrincipalView::class.java)
+        startActivity(intent)
+    }
+    private fun Terminos(){
+        val intent = Intent(this, Terminos::class.java)
+        startActivity(intent)
+    }
+
+
+
+
+
+
+}
