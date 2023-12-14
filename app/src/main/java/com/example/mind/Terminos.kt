@@ -1,26 +1,55 @@
 package com.example.mind
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.widget.CheckBox
+import android.widget.ImageButton
 import android.widget.ImageView
-
+import androidx.appcompat.app.AlertDialog
 class Terminos : AppCompatActivity() {
 
-    private lateinit var mentCheckBox: CheckBox
+    private lateinit var checkBox: CheckBox
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_terminos)
 
-        //Boton retroceso
-        /*val mentCheckBox: CheckBox = findViewById(R.id.mentCheckBox)
-        mentCheckBox.setOnClickListener{
-            onBackPressed()
-        }*/
+        //BOTON DE REGRESO
+        val imageButton: ImageButton = findViewById(R.id.imageButton)
+        imageButton.setOnClickListener {
+            // Agrega la lógica para volver al Main o a la actividad anterior aquí
+            onBackPressed() // Esta función vuelve a la actividad anterior (Main en la mayoría de los casos)
+        }
+
+        checkBox = findViewById(R.id.mentCheckBox)
+        checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                mostrarDialogo()
+            }
+        }
     }
-    /*private fun Cuenta(){
-        val intent = Intent(this, Terminos::class.java)
+
+    //FUNCION DEL ALERT
+    private fun mostrarDialogo() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("CONFIRMAR PARA CONTINUAR")
+            .setMessage("Has revisado los términos y condiciones. ¿Estás seguro de continuar?")
+            .setPositiveButton("Aceptar") { dialog, which ->
+                abrirMainActivity()
+            }
+            .setNegativeButton("Cancelar") { dialog, which ->
+                dialog.dismiss() // Cierra el diálogo
+            }
+            .show()
+    }
+
+    private fun abrirMainActivity() {
+        val intent = Intent(this, testUser::class.java)
         startActivity(intent)
-    }*/
+        finish() // Para cerrar la actividad actual si es necesario
+    }
+
 }

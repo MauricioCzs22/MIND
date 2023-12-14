@@ -8,8 +8,8 @@
     android:orientation="vertical"
     tools:context=".registro">
     <ImageView
-        android:id="@+id/btnRetro"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnRetroc"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/retroceso" />
 
@@ -217,7 +217,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnRCancelar"
+                    android:id="@+id/btnCancelar"
                     android:layout_width="150dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="10dp"

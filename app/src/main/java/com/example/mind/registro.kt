@@ -2,6 +2,7 @@
 
 package com.example.mind
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,6 +31,7 @@ class registro : AppCompatActivity() {
     private lateinit var mTextInputPassword: TextInputEditText
     private lateinit var mUserProvider: UserProvider
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
@@ -46,15 +48,15 @@ class registro : AppCompatActivity() {
 
         //BOTONES
         //Boton retroceso
-        val btnRetro: ImageView = findViewById(R.id.btnRetro)
+        val btnRetro: ImageView = findViewById(R.id.btnRetroc)
         btnRetro.setOnClickListener{
-            onBackPressed()
+            retroceso()
         }
-        //Boton Cancelar
-        val btnCancelar: Button = findViewById(R.id.btnRCancelar)
+        val btnCancelar: Button = findViewById(R.id.btnCancelar)
         btnCancelar.setOnClickListener {
             onCancelButtonClicked()
         }
+
         //Boton Aceptar
         val btnAceptar: Button = findViewById(R.id.btnRegistrar)
         btnAceptar.setOnClickListener {
@@ -66,13 +68,8 @@ class registro : AppCompatActivity() {
             Terminos()
         }
     }
-    override fun onBackPressed() {
-        super.onBackPressed()
-    }
-    //boton cancelar
-    fun onCancelButtonClicked() {
-        Toast.makeText(this, "Operación cancelada", Toast.LENGTH_SHORT).show()
-    }
+
+
     private fun registroUsuario (){
         val name      : String = mTextInputNombre.text.toString()
         val email     : String = mTextInputEmail.text.toString()
@@ -131,7 +128,7 @@ class registro : AppCompatActivity() {
 
                         reference.updateChildren(hashMap).addOnCompleteListener { task2->
                             if(task2.isSuccessful){
-                                val intent = Intent(this@registro, cuenta::class.java)
+                                val intent = Intent(this@registro, Terminos::class.java)
                                 Toast.makeText(this,"Se logró registrar con éxito",Toast.LENGTH_SHORT).show()
                                 startActivity(intent)
                             }
@@ -144,55 +141,18 @@ class registro : AppCompatActivity() {
             )
         }
 
-
-
-
-
-
-
-        /*
-    private fun saveUser(userNew: Users) {        mUserProvider.create(userNew)?.addOnCompleteListener(
-            OnCompleteListener {
-                if (it.isSuccessful){
-                    Toast.makeText(this,"Se logró registrar en la base de datos",Toast.LENGTH_SHORT).show()
-                } else {
-
-                    var test = it.exception?.message
-                    Toast.makeText(this,"No se logró registrar en la base de datos" + test,Toast.LENGTH_SHORT).show()
-                }
-            }
-
-        )
-    }*/
-
-    /*private fun isFormularioValido(): Boolean {
-        var flag = true;
-        var name = mTextInputNombre.text.toString()
-        if (name.isEmpty()) flag = false;
-        if (!matricula.isNotEmpty()) flag = false;
-        if (!email.isNotEmpty()) flag = false;
-        if (!semestre.isNotEmpty()) flag = false;
-        if (!carrera.isNotEmpty()) flag = false;
-        if (!password.isNotEmpty()) flag = false;
-
-        return flag;
-    }*/
-    /*
-        */
-
 }
-    private fun PrincipalView(){
-        val intent = Intent(this, PrincipalView::class.java)
+    //funcion retroceso
+    private fun retroceso() {
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
-    private fun Terminos(){
-        val intent = Intent(this, Terminos::class.java)
+    //boton cancelar
+    fun onCancelButtonClicked() {
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
+        Toast.makeText(this, "Operación cancelada", Toast.LENGTH_SHORT).show()
     }
-
-
-
-
 
 
 }

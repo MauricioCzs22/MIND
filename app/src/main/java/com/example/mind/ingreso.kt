@@ -26,9 +26,6 @@ class ingreso : AppCompatActivity() {
    private lateinit var mDatabase: DatabaseReference
    private lateinit var btnLogin:Button
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ingreso)
@@ -45,11 +42,12 @@ class ingreso : AppCompatActivity() {
         val btnLogin: Button = findViewById(R.id.btnLogin)
         btnLogin.setOnClickListener {
             login()
+
         }
         //boton retorno
         val btnRetro: ImageView = findViewById(R.id.btnRetro)
         btnRetro.setOnClickListener{
-            onBackPressed()
+            retroceso()
         }
         //boton cancelar
         val btnCancelar: Button = findViewById(R.id.btnCancelar)
@@ -70,7 +68,10 @@ class ingreso : AppCompatActivity() {
 
 
     }
-     //FUNCION LOGIN
+
+
+
+    //FUNCION LOGIN
      private fun login() {
          val email = mTextInputEmail.text.toString()
          val password = mTextInputPassword.text.toString()
@@ -93,11 +94,14 @@ class ingreso : AppCompatActivity() {
      }
 
     //funcion retroceso
-    override fun onBackPressed() {
-        super.onBackPressed()
+    private fun retroceso() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
     //boton cancelar
     fun onCancelButtonClicked() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
         Toast.makeText(this, "Operación cancelada", Toast.LENGTH_SHORT).show()
     }
     private fun registro(){
@@ -122,7 +126,6 @@ class ingreso : AppCompatActivity() {
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
     }
-
     private fun startTestUserActivity() {
         val intent = Intent(this, testUser::class.java)
         startActivity(intent)
