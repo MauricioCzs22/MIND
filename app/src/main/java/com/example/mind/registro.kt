@@ -24,10 +24,8 @@ class registro : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var mTextInputNombre: TextInputEditText
-    private lateinit var mTextInputMatricula: TextInputEditText
+    private lateinit var mTextInputTelefono: TextInputEditText
     private lateinit var mTextInputEmail: TextInputEditText
-    private lateinit var mTextInputSemestre: AutoCompleteTextView
-    private lateinit var mTextInputCarrera: AutoCompleteTextView
     private lateinit var mTextInputPassword: TextInputEditText
     private lateinit var mUserProvider: UserProvider
 
@@ -40,10 +38,8 @@ class registro : AppCompatActivity() {
         mUserProvider = UserProvider()
 
         mTextInputNombre = findViewById(R.id.etNombre)
-        mTextInputMatricula = findViewById(R.id.etMatricula)
+        mTextInputTelefono = findViewById(R.id.etTelefono)
         mTextInputEmail = findViewById(R.id.etEmail)
-        mTextInputSemestre = findViewById(R.id.etSemestre)
-        mTextInputCarrera = findViewById(R.id.Etcarrera)
         mTextInputPassword = findViewById(R.id.etPassword)
 
         //BOTONES
@@ -74,9 +70,7 @@ class registro : AppCompatActivity() {
         val name      : String = mTextInputNombre.text.toString()
         val email     : String = mTextInputEmail.text.toString()
         val password  : String  = mTextInputPassword.text.toString()
-        val matricula : String  = mTextInputMatricula.text.toString()
-        val semestre  : String  = mTextInputSemestre.text.toString()
-        val carrera   : String  = mTextInputCarrera.text.toString()
+        val telefono : String  = mTextInputTelefono.text.toString()
 
         if (name.isEmpty()){
             Toast.makeText(applicationContext, "Ingrese su nombre",Toast.LENGTH_SHORT).show()
@@ -87,17 +81,11 @@ class registro : AppCompatActivity() {
         if (password.isEmpty()){
             Toast.makeText(applicationContext, "Ingrese su contraseña",Toast.LENGTH_SHORT).show()
         }
-        if (matricula.isEmpty()){
-            Toast.makeText(applicationContext, "Ingrese su matricula",Toast.LENGTH_SHORT).show()
-        }
-        if (semestre.isEmpty()){
-            Toast.makeText(applicationContext, "Ingrese semestre",Toast.LENGTH_SHORT).show()
-        }
-        if (carrera.isEmpty()){
-            Toast.makeText(applicationContext, "Ingrese su carrera",Toast.LENGTH_SHORT).show()
+        if (telefono.isEmpty()){
+            Toast.makeText(applicationContext, "Ingrese su telefono",Toast.LENGTH_SHORT).show()
         }
 
-        if(name.isNotEmpty() && matricula.isNotEmpty() && email.isNotEmpty() && semestre.isNotEmpty() && carrera.isNotEmpty() && password.isNotEmpty()){
+        if(name.isNotEmpty() && telefono.isNotEmpty() && email.isNotEmpty()  && password.isNotEmpty()){
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(
                 OnCompleteListener {
                     if (it.isSuccessful) {
@@ -106,23 +94,19 @@ class registro : AppCompatActivity() {
                         uid = mAuth.currentUser!!.uid
                         var reference =
                             FirebaseDatabase.getInstance().reference.child("Users").child(uid)
-                        //val userNew = Users(idUser.toString(), name, email, password, matricula, semestre, carrera);
+                        //val userNew = Users(idUser.toString(), name, email, password, telefono, semestre, carrera);
                         //saveUser(userNew)
                          val hashMap = HashMap<String, Any>()
 
                         val hname : String = mTextInputNombre.text.toString()
-                        val hmatricula : String = mTextInputMatricula.text.toString()
+                        val htelefono : String = mTextInputTelefono.text.toString()
                         val hemail : String = mTextInputEmail.text.toString()
-                        val hsemestre : String = mTextInputSemestre.text.toString()
-                        val hcarrera : String = mTextInputCarrera.text.toString()
                         val hpassword : String = mTextInputPassword.text.toString()
 
                         hashMap["uid"] = uid
                         hashMap["f_nombre"] = hname
-                        hashMap["f_matricul"] = hmatricula
+                        hashMap["f_telefono"] = htelefono
                         hashMap["f_emai"] = hemail
-                        hashMap["f_semestre"] = hsemestre
-                        hashMap["f_carrera"] = hcarrera
                         hashMap["f_password"] = hpassword
                         hashMap["buscar"] = hname.lowercase()
 

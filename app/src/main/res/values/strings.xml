@@ -26,10 +26,10 @@
 
     <!--PANTALLA DE REGISTRO-->
     <string name="title_register">REGISTRO</string>
-    <string name="etEmail">CORREO INSTITUCIONAL</string>
+    <string name="etEmail">CORREO PERSONAL</string>
     <string name="etPassword">CONTRASEÑA</string>
     <string name="nombreC">Nombre Completo</string>
-    <string name="matricula">Matrícula</string>
+    <string name="n_telefono">Número de Teléfono</string>
     <string name="semestre">Semestre</string>
     <string name="btnaceptar">Aceptar</string>
     <string name="Carrera">CARRERA</string>

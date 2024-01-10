@@ -74,12 +74,12 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="16dp"
-                android:hint="@string/matricula"
+                android:hint="@string/n_telefono"
                 app:boxBackgroundMode="outline"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
                 app:counterEnabled="true"
-                app:counterMaxLength="9"
+                app:counterMaxLength="10"
                 app:endIconMode="clear_text"
                 app:helperText="SOLO NÚMEROS"
                 app:helperTextEnabled="true"
@@ -87,7 +87,7 @@
                 app:startIconDrawable="@drawable/ic_matricula">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etMatricula"
+                    android:id="@+id/etTelefono"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_marginLeft="30dp"
@@ -123,56 +123,6 @@
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:scrollHorizontally="true" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-            <!--SOLICITUD DE SEMESTRE-->
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="16dp"
-                android:hint="@string/semestre"
-                app:boxBackgroundMode="outline"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:helperTextEnabled="true"
-                app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/ic_semestre">
-
-                <AutoCompleteTextView
-                    android:id="@+id/etSemestre"
-                    android:layout_width="250dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="30dp"
-                    android:inputType="none"
-                    app:simpleItems="@array/semester_array" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!--SOLICITUD DE CARRERA-->
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="16dp"
-                android:hint="@string/Carrera"
-                app:boxBackgroundMode="outline"
-                app:boxCornerRadiusTopEnd="10dp"
-                app:boxCornerRadiusTopStart="10dp"
-                app:hintTextColor="@color/black"
-                app:startIconDrawable="@drawable/ic_semestre">
-
-                <AutoCompleteTextView
-                    android:id="@+id/Etcarrera"
-                    android:layout_width="250dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="30dp"
-                    android:inputType="none"
-                    app:simpleItems="@array/carreras_array" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!--SOLICITUD DE CONTRASEÑA-->
