@@ -42,9 +42,7 @@ class registro : AppCompatActivity() {
         mTextInputEmail = findViewById(R.id.etEmail)
         mTextInputPassword = findViewById(R.id.etPassword)
 
-        //BOTONES
-        //Boton retroceso
-        val btnRetro: ImageView = findViewById(R.id.btnRetroc)
+        val btnRetro: ImageView = findViewById(R.id.btnRetro)
         btnRetro.setOnClickListener{
             retroceso()
         }
@@ -64,7 +62,6 @@ class registro : AppCompatActivity() {
             Terminos()
         }
     }
-
 
     private fun registroUsuario (){
         val name      : String = mTextInputNombre.text.toString()
@@ -90,20 +87,16 @@ class registro : AppCompatActivity() {
                 OnCompleteListener {
                     if (it.isSuccessful) {
                         var uid : String = ""
-                        //var idUser = mAuth.currentUser?.uid
                         uid = mAuth.currentUser!!.uid
                         var reference =
                             FirebaseDatabase.getInstance().reference.child("Users").child(uid)
-                        //val userNew = Users(idUser.toString(), name, email, password, telefono, semestre, carrera);
-                        //saveUser(userNew)
-                         val hashMap = HashMap<String, Any>()
-
+                        val hashMap = HashMap<String, Any>()
                         val hname : String = mTextInputNombre.text.toString()
                         val htelefono : String = mTextInputTelefono.text.toString()
                         val hemail : String = mTextInputEmail.text.toString()
                         val hpassword : String = mTextInputPassword.text.toString()
 
-                        hashMap["uid"] = uid
+                        //hashMap["uid"] = uid
                         hashMap["f_nombre"] = hname
                         hashMap["f_telefono"] = htelefono
                         hashMap["f_emai"] = hemail
@@ -124,7 +117,6 @@ class registro : AppCompatActivity() {
                 }
             )
         }
-
 }
     //funcion retroceso
     private fun retroceso() {
@@ -137,6 +129,4 @@ class registro : AppCompatActivity() {
         startActivity(intent)
         Toast.makeText(this, "Operación cancelada", Toast.LENGTH_SHORT).show()
     }
-
-
 }

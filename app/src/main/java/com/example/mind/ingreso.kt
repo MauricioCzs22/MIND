@@ -8,18 +8,14 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import org.w3c.dom.Text
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
-
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-
 class ingreso : AppCompatActivity() {
 
-    private lateinit var txRegis: TextView
-
+   private lateinit var txRegis: TextView
    private lateinit var mTextInputEmail : TextInputEditText
    private lateinit var mTextInputPassword: TextInputEditText
    private lateinit var mAuth: FirebaseAuth
@@ -37,12 +33,10 @@ class ingreso : AppCompatActivity() {
         mTextInputEmail = findViewById(R.id.textInputEmail)
         mTextInputPassword = findViewById(R.id.textInputPassword)
 
-
         //BOTONES
         val btnLogin: Button = findViewById(R.id.btnLogin)
         btnLogin.setOnClickListener {
             login()
-
         }
         //boton retorno
         val btnRetro: ImageView = findViewById(R.id.btnRetro)
@@ -58,18 +52,8 @@ class ingreso : AppCompatActivity() {
         txRegis = findViewById(R.id.txRegis)
         txRegis.setOnClickListener {
             registro()
-        }/*
-        btnIngresar.setOnClickListener{
-            showHelloDialog()
-        }*/
-
-
-
-
-
+        }
     }
-
-
 
     //FUNCION LOGIN
      private fun login() {
@@ -118,11 +102,9 @@ class ingreso : AppCompatActivity() {
             .setTitle("¡Hola!")
             .setMessage("Antes de comenzar, queremos darte la bienvenida a MindAI, estas apunto de responder un test de 14 preguntas que determinarán tu nivel de estrés")
             .setPositiveButton("Continuar") { dialog, which ->
-                // Al hacer clic en "Continuar", inicia la actividad testUser
                 startTestUserActivity()
             }
-            .setCancelable(false)  // No permitir que el usuario cierre el diálogo al tocar fuera de él
-
+            .setCancelable(false)
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
     }
@@ -130,7 +112,4 @@ class ingreso : AppCompatActivity() {
         val intent = Intent(this, testUser::class.java)
         startActivity(intent)
     }
-
-
-
 }
