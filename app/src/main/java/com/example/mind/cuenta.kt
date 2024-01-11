@@ -1,8 +1,10 @@
 package com.example.mind
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
@@ -30,9 +32,9 @@ class cuenta : AppCompatActivity() {
 
         mDataBase = FirebaseDatabase.getInstance().getReference()
 
-        val btnRetro: ImageView = findViewById(R.id.btnRetro)
-        btnRetro.setOnClickListener{
-            retroceso()
+        val btnRetro: ImageButton = findViewById(R.id.btnRetro)
+        btnRetro.setOnClickListener {
+            onBackPressed()
         }
 
         // Obtenemos el UID del usuario actual
@@ -60,9 +62,4 @@ class cuenta : AppCompatActivity() {
         })
 
     }
-    private fun retroceso() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
-    }
-
 }

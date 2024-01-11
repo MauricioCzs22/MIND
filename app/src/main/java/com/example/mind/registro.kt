@@ -96,7 +96,7 @@ class registro : AppCompatActivity() {
                         val hemail : String = mTextInputEmail.text.toString()
                         val hpassword : String = mTextInputPassword.text.toString()
 
-                        //hashMap["uid"] = uid
+                        hashMap["uid"] = uid
                         hashMap["f_nombre"] = hname
                         hashMap["f_telefono"] = htelefono
                         hashMap["f_emai"] = hemail

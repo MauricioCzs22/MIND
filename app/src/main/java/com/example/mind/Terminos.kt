@@ -20,8 +20,7 @@ class Terminos : AppCompatActivity() {
         //BOTON DE REGRESO
         val imageButton: ImageButton = findViewById(R.id.imageButton)
         imageButton.setOnClickListener {
-            // Agrega la lógica para volver al Main o a la actividad anterior aquí
-            onBackPressed() // Esta función vuelve a la actividad anterior (Main en la mayoría de los casos)
+            onBackPressed()
         }
 
         checkBox = findViewById(R.id.mentCheckBox)
