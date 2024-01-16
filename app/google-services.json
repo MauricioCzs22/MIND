@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "931762521550",
-    "project_id": "mindproyect-e3c02",
-    "storage_bucket": "mindproyect-e3c02.appspot.com"
+    "project_number": "994674319969",
+    "firebase_url": "https://mind-81e26-default-rtdb.firebaseio.com",
+    "project_id": "mind-81e26",
+    "storage_bucket": "mind-81e26.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:931762521550:android:13ec9971a0594d5fce979f",
+        "mobilesdk_app_id": "1:994674319969:android:c63a2a17514a194414c020",
         "android_client_info": {
           "package_name": "com.example.mind"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCKcVP8fIzv41qCz6D1KnX1xfzZS-yC_sQ"
+          "current_key": "AIzaSyDujXzXSL27NR49eieOBS1aHgcQtXjOaEo"
         }
       ],
       "services": {

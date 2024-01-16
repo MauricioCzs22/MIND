@@ -2,21 +2,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_iconoapp"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_iconoapp_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Mind"
         tools:targetApi="31">
+        <activity
+            android:name=".chatbot2.ui.Chat"
+            android:exported="false" />
+
+
+
+
+        <activity
+            android:name=".cuenta"
+            android:exported="false" />
+        <activity
+            android:name=".Terminos"
+            android:exported="false" />
+        <activity
+            android:name=".PrincipalView"
+            android:exported="false" />
         <activity
             android:name=".registro"
             android:exported="false" />
         <activity
             android:name=".ingreso"
+            android:exported="false" />
+        <activity
+            android:name=".testUser"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

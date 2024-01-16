@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#B0E5DC"
+    tools:context=".Terminos">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="25dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!--BIENVENIDA-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_return"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:clickable="true"
+                android:text="TERMINOS Y CONDICIONES"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="550dp"
+                android:layout_marginTop="25dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="130dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/mariposaproy" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="POLITICAS DE PRIVACIDAD"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Esta política describe cómo recopilamos, usamos y compartimos tu información en el servicio MindIA. Al utilizar nuestro servicio, aceptas estas prácticas."/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="DEFINICIONES CLAVE:
+                \n-Cuenta: Acceso único al servicio.
+                \n-Afiliado: Entidad relacionada con nosotros.
+                \n-Aplicación (MindIA): Nuestro programa de software."/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="DATOS PERSONALES RECOPILADOS:
+                \n-Nombre completo.
+                \n-Matrícula y correo institucional
+                \n-Datos academicos(Semestre y carrera)"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="USO DE DATOS PERSONALES:
+                \n-Mejorar y proporcionar el servicio.
+                \n-Administrar tu cuenta.
+                \n-Cumplir contratos y responder consultas.
+                \n-Enviar actualizaciones y ofertas."/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="COMPARTIR INFORMACIÓN:
+                \n-Con proveedores de servicios para mejorar el servicio.
+                \n-En fusiones o transacciones comerciales.
+                \n-Con afiliados y socios comerciales."/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="SEGURIDAD DE DATOS PERSONALES:
+                \n-Aunque implementamos medidas de seguridad, ninguna transmisión es 100% segura.\n
+                \nPRIVACIDAD DE EDAD:
+                \n-El servicio no está dirigido a menores de 18 años. No recopilamos información de menores de 18 años.\n
+
+                \nENLACES A OTROS SITIOS WEB:
+                \n-No controlamos ni somos responsables de sitios web de terceros vinculados desde nuestro servicio.\n
+
+                \nCAMBIOS EN LA POLÍTICA DE PRIVACIDAD:
+                \nActualizamos la política periódicamente. Serás notificado de cambios significativos.\n
+
+                \nCONTACTO:
+                \nPara más preguntas, contáctanos al número: 5523958463.\n"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:text="Fecha de la última actualización: Noviembre 29, 2023"/>
+
+                <CheckBox
+                    android:id="@+id/mentCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:textStyle="italic|bold"
+                    android:textSize="15dp"
+                    android:text="Estoy de acuerdo con los términos y condiciones"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
