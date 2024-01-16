@@ -43,7 +43,7 @@ object BotResponse {
                     when (random) {
                         0 -> "Hola, ¿Cómo estas?"
                         1 -> "Que tal, buen día!"
-                        2 -> "Buongiorno!"
+                        2 -> "Gusto en saludarte, ¿puedo ayudarte en algo?"
                         else -> "error"
                     }
                 }
@@ -78,7 +78,7 @@ object BotResponse {
                 //Estresado
                 message.contains("estres") -> {
                     when (random) {
-                        0 -> "Lo siento mucho, escuchar que estás estresado. ¿Hay algo que pueda hacer para ayudarte?"
+                        0 -> "Siento mucho, escuchar que estás estresado. ¿Hay algo que pueda hacer para ayudarte?"
                         1 -> "¿Qué te está estresando?"
                         2 -> "¿Te gustaría hablar de ello?"
                         else -> "error"
@@ -87,7 +87,7 @@ object BotResponse {
                 //nervioso
                 message.contains("nervioso") -> {
                     when (random) {
-                        0 -> "Lo siento mucho, escuchar que estás nervioso. ¿Hay algo que pueda hacer para ayudarte?"
+                        0 -> "Siento mucho, escuchar que estás nervioso. ¿Hay algo que pueda hacer para ayudarte?"
                         1 -> "¿Qué te está poniendo nervioso?"
                         2 -> "Aquí hay algunas cosas que puedes hacer para aliviar el nerviosismo: hacer ejercicio, escuchar música relajante, pasar tiempo con amigos y familiares, o tomar un descanso"
                         else -> "error"
@@ -135,7 +135,7 @@ object BotResponse {
                     when (random) {
                         0 -> "Entiendo, a continuación te brindare el contacto de psicologos que podrían brindarte una mejor atención psicologíca"
                         1 -> "En el apartado de ayuda, podras encontrar el contacto de distintos psicologos que pueden brindarte ayuda especializada"
-                        2 -> "Ayuda especializada"
+                        2 -> "¿Ayuda especializada?"
                         else -> "error"
                     }
                 }

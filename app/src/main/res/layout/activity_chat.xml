@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".chatbot2.ui.Chat">
 
-
+    <ImageButton
+        android:id="@+id/btnRetro"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/retroceso" />
     <LinearLayout
         android:id="@+id/ll_layout_bar"
         android:layout_width="match_parent"
@@ -44,8 +49,7 @@
         android:id="@+id/rv_messages"
         android:layout_width="match_parent"
         android:layout_height="582dp"
-        android:layout_below="@+id/dark_divider"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="70dp"
         tools:itemCount="20"
         tools:listitem="@layout/message_item" />
 

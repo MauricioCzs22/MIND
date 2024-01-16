@@ -1,11 +1,13 @@
 package com.example.mind.chatbot2.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.codepalace.chatbot.utils.BotResponse
@@ -31,9 +33,10 @@ class Chat : AppCompatActivity() {
     private lateinit var adapter: MessagingAdapter
     private lateinit var rv_messages: RecyclerView
     private lateinit var et_message: EditText
-    private val botList = listOf("Peter", "Francesa", "Luigi", "Igor")
+    private val botList = listOf(" MindAI", " MindAI", " MindAI", " MindAI")
 
     //private val isBienvenidaChat: false
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
@@ -45,7 +48,12 @@ class Chat : AppCompatActivity() {
         val random = (0..3).random()
         customMessage("Hola, hoy hablaremos con ${botList[random]},necesitas ayuda?")
 
+        val btnRetro: ImageButton = findViewById(R.id.btnRetro)
+        btnRetro.setOnClickListener {
+            onBackPressed()
+        }
     }
+
 
     private fun clickEvents() {
         btn_send.setOnClickListener {

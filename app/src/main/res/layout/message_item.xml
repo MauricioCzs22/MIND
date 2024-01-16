@@ -29,7 +29,7 @@
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="4dp"
         android:background="@drawable/receive_round_box"
-        android:backgroundTint="#F3E4E4"
+        android:backgroundTint="#61BAC2"
         android:padding="14dp"
         android:text="Aqui estamos"
         android:textColor="@color/black"
