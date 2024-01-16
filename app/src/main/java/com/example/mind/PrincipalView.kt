@@ -41,6 +41,8 @@ class PrincipalView : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             R.id.nav_item2 -> Toast.makeText(this, "Notificaciones", Toast.LENGTH_SHORT).show()
             R.id.nav_item3 -> Toast.makeText(this, "Ayuda", Toast.LENGTH_SHORT).show()
             R.id.nav_item4 ->  { startActivity(Intent(this, Terminos::class.java ))}
+            R.id.nav_item6 -> { startActivity(Intent(this, chat::class.java ))}
+
             R.id.nav_item5 -> {
                 FirebaseAuth.getInstance().signOut()
                 val intent = Intent(this@PrincipalView, ingreso::class.java)
