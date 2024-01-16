@@ -140,7 +140,6 @@ object BotResponse {
                     }
                 }
 
-
                 //What time is it?
                 message.contains("time") && message.contains("?") -> {
                     val timeStamp = Timestamp(System.currentTimeMillis())

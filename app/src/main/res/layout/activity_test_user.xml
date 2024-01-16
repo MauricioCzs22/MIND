@@ -7,7 +7,7 @@
     android:paddingBottom="20dp"
     android:paddingRight="20dp"
     android:paddingLeft="20dp"
-    android:paddingTop="20dp"
+    android:paddingTop="90dp"
     android:orientation="vertical"
     tools:context=".testUser">
 
@@ -17,7 +17,7 @@
         android:paddingLeft="20dp"
         android:paddingTop="20dp"
         android:layout_width="350dp"
-        android:layout_height="match_parent"
+        android:layout_height="550dp"
         android:layout_marginLeft="28dp"
         android:background="@drawable/f_ingreso"
         android:orientation="vertical"
@@ -28,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Test de estrés"
+            android:layout_marginLeft="90dp"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="20sp"
