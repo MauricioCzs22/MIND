@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Mind"
         tools:targetApi="31">
         <activity
-            android:name=".chat"
+            android:name=".chatbot2.ui.Chat"
             android:exported="false" />
 
 

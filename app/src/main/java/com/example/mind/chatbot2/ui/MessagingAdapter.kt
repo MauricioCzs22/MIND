@@ -43,14 +43,14 @@ class MessagingAdapter :
                     text = currentMessage.message
                     visibility = View.VISIBLE
                 }
-                holder.binding.tvMessage.visibility = View.GONE
+                holder.binding.tvBotMessage.visibility = View.GONE
             }
             RECEIVE_ID -> {
                 holder.binding.tvBotMessage.apply {
                     text = currentMessage.message
                     visibility = View.VISIBLE
                 }
-                holder.binding.tvBotMessage.visibility = View.GONE
+                holder.binding.tvMessage.visibility = View.GONE
             }
         }
     }

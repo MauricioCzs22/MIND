@@ -7,9 +7,9 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.mind.chatbot2.ui.Chat
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
@@ -41,7 +41,7 @@ class PrincipalView : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             R.id.nav_item2 -> Toast.makeText(this, "Notificaciones", Toast.LENGTH_SHORT).show()
             R.id.nav_item3 -> Toast.makeText(this, "Ayuda", Toast.LENGTH_SHORT).show()
             R.id.nav_item4 ->  { startActivity(Intent(this, Terminos::class.java ))}
-            R.id.nav_item6 -> { startActivity(Intent(this, chat::class.java ))}
+            R.id.nav_item6 -> { startActivity(Intent(this, Chat::class.java ))}
 
             R.id.nav_item5 -> {
                 FirebaseAuth.getInstance().signOut()

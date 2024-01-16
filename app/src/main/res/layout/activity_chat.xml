@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".chat">
+    tools:context=".chatbot2.ui.Chat">
 
 
     <LinearLayout
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#E4E4E4"
+        android:background="#FFFFFF"
         android:orientation="horizontal">
 
         <EditText
@@ -23,9 +23,8 @@
             android:layout_margin="10dp"
             android:layout_weight=".5"
             android:background="@drawable/round_button"
-            android:backgroundTint="@android:color/white"
             android:hint="Type a message..."
-            android:padding="10dp"
+            android:padding="15dp"
             android:singleLine="true" />
 
         <Button
@@ -34,10 +33,10 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:background="@drawable/round_button"
-            android:backgroundTint="#26A69A"
-            android:text="Send"
-            android:textColor="@android:color/white" />
+            android:text="Enviar"
+            android:textColor="@color/black"
+            app:iconTint="#FFFFFF" />
+
 
     </LinearLayout>
 
