@@ -42,7 +42,7 @@
                 android:text="TERMINOS Y CONDICIONES"
                 android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="20dp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -61,6 +61,7 @@
                     android:layout_width="130dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="-20dp"
                     app:srcCompat="@drawable/mariposaproy" />
 
                 <TextView

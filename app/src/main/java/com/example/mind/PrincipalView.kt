@@ -1,5 +1,6 @@
 package com.example.mind
 
+import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,7 +9,9 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.mind.chatbot2.ui.Chat
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class PrincipalView : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -34,11 +37,19 @@ class PrincipalView : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.nav_item1 -> Toast.makeText(this, "Cuenta", Toast.LENGTH_SHORT).show()
-            R.id.nav_item2 -> Toast.makeText(this, "Notificaciones", Toast.LENGTH_SHORT).show()
-            R.id.nav_item3 -> Toast.makeText(this, "Ayuda", Toast.LENGTH_SHORT).show()
-            R.id.nav_item4 -> Toast.makeText(this, "Terminos y Condiciones", Toast.LENGTH_SHORT).show()
-            R.id.nav_item5 -> Toast.makeText(this, "Cerrar Sesion", Toast.LENGTH_SHORT).show()
+            R.id.nav_item1 -> { startActivity(Intent(this, cuenta::class.java ))}
+            R.id.nav_item3 ->  { startActivity(Intent(this, ayuda::class.java ))}
+            R.id.nav_item4 ->  { startActivity(Intent(this, Terminos::class.java ))}
+            R.id.nav_item6 -> { startActivity(Intent(this, Chat::class.java ))}
+
+            R.id.nav_item5 -> {
+                FirebaseAuth.getInstance().signOut()
+                val intent = Intent(this@PrincipalView, ingreso::class.java)
+                Toast.makeText(applicationContext, "Has cerrado sesion",Toast.LENGTH_SHORT).show()
+                startActivity(intent)
+                return true
+            }
+            else->super.onOptionsItemSelected(item)
 
         }
         drawer.closeDrawer(GravityCompat.START)
@@ -61,4 +72,10 @@ class PrincipalView : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         }
         return super.onOptionsItemSelected(item)
     }
+
+
+
+
+
+
 }

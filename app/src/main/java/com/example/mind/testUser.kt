@@ -1,8 +1,10 @@
 package com.example.mind
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -152,10 +154,17 @@ class testUser : AppCompatActivity() {
         val resultMessage = when (percentageRange) {
             in 0..25 -> "Estás bien de salud"
             in 26..50 -> "Bien, pero podrías considerar gestionar el estrés"
-            in 51..75 -> "Moderadamente estresado, es recomendable hablar con alguien"
+            in 51..75 -> "Moderadamente estresado, es recomendable visitar a algun profesional"
             in 76..100 -> "Estresado, considera una cita con el psicólogo"
-            else -> "Necesitas hacer una cita con el área de psicología"
-        }
+            else -> "Necesitas hacer una cita con alguno de nuestros psicologos"
+        }// Abrir la clase Terminos
+        val intent = Intent(this, PrincipalView::class.java)
+        intent.putExtra("resultMessage", resultMessage)
+        startActivity(intent)
+        Handler().postDelayed({
+            startActivity(intent)
+        }, 3000)
+
 
         // Crear un AlertDialog
         val alertDialogBuilder = AlertDialog.Builder(this)
