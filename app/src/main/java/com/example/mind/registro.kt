@@ -27,7 +27,7 @@ class registro : AppCompatActivity() {
     private lateinit var mTextInputTelefono: TextInputEditText
     private lateinit var mTextInputEmail: TextInputEditText
     private lateinit var mTextInputPassword: TextInputEditText
-    private lateinit var mUserProvider: UserProvider
+    //private lateinit var mUserProvider: UserProvider
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,7 @@ class registro : AppCompatActivity() {
         setContentView(R.layout.activity_registro)
 
         mAuth = FirebaseAuth.getInstance()
-        mUserProvider = UserProvider()
+        //mUserProvider = UserProvider()
 
         mTextInputNombre = findViewById(R.id.etNombre)
         mTextInputTelefono = findViewById(R.id.etTelefono)
@@ -59,7 +59,9 @@ class registro : AppCompatActivity() {
         //Boton terminos
         val tvTerminos: TextView = findViewById(R.id.tvTerminos)
         tvTerminos.setOnClickListener{
-            Terminos()
+            val intent = Intent(this, Terminos::class.java)
+            intent.putExtra("hideAgreementCheckbox", true)
+            startActivity(intent)
         }
     }
 

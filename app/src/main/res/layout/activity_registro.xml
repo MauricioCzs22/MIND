@@ -153,6 +153,8 @@
                 android:id="@+id/tvTerminos"
                 android:layout_width="wrap_content"
                 android:layout_height="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_marginLeft="60dp"
                 android:text="@string/TCondic"
                 android:textColor="#0368C6"

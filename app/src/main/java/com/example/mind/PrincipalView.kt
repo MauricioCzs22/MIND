@@ -41,6 +41,7 @@ class PrincipalView : AppCompatActivity(), NavigationView.OnNavigationItemSelect
             R.id.nav_item3 ->  { startActivity(Intent(this, ayuda::class.java ))}
             R.id.nav_item4 ->  { startActivity(Intent(this, Terminos::class.java ))}
             R.id.nav_item6 -> { startActivity(Intent(this, Chat::class.java ))}
+            R.id.nav_item7 -> { startActivity(Intent(this, testUser::class.java ))}
 
             R.id.nav_item5 -> {
                 FirebaseAuth.getInstance().signOut()

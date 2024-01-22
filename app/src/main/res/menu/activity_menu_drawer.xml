@@ -4,6 +4,9 @@
         <item android:id="@+id/nav_item1"
             android:icon="@drawable/submenu"
             android:title="Cuenta"/>
+        <item android:id="@+id/nav_item7"
+            android:icon="@drawable/submenu"
+            android:title="Iniciar Test"/>
         <item android:id="@+id/nav_item6"
             android:icon="@drawable/submenu"
             android:title="Chat"/>

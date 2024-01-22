@@ -126,6 +126,7 @@
                 \nPara más preguntas, contáctanos al número: 5523958463.\n"/>
 
                 <TextView
+                    android:id="@+id/tvFechaActualizacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"

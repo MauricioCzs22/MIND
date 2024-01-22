@@ -5,12 +5,16 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.widget.Button
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.example.mind.models.SingleQuestion
+import com.example.mind.models.Test
+import com.google.gson.Gson
 
 class testUser : AppCompatActivity() {
     private lateinit var btnNext: Button
@@ -24,68 +28,71 @@ class testUser : AppCompatActivity() {
     val vienticinco: Int = 25
     val cero: Int = 0
 
+    val opciones = listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado")
+    val valores = listOf(cien, setentaycinco, cincuenta, vienticinco, cero)
 
-    private val questions = listOf(
-        Question("1.- Durante el último mes, con qué frecuencia ha estado afectado por alguna situación que ocurrió inesperadamente.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        // Agregar más preguntas según sea necesario
-        Question("2.- Durante el último mes, con qué frecuencia se ha sentido incapaz de controlar las cosas importantes de su vida.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("3.- Durante el último mes, con qué frecuencia se ha sentido nervioso o estresado.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("4.- Durante el último mes, con qué frecuencia ha manejado con éxito los pequeños problemas irritantes de su vida.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("5.- Durante el último mes, con qué frecuencia ha sentido que ha afrontado efectivamente los cambios importantes que han estado ocurriendo en su vida.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("6.- Durante el último mes, con qué frecuencia ha estado seguro sobre su capacidad para manejar sus problemas personales.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("7.- Durante el último mes, con qué frecuencia ha sentido que las cosas le salen bien.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("8.- En el último mes, con qué frecuencia ha sentido no poder afrontar todas las cosas que debía realizar.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("9.- Durante el último mes con qué frecuencia ha podido controlar las dificultades de su vida.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("10.- Durante el último mes, con qué frecuencia ha sentido que está al control de todo.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("11.- Durante el último mes, con qué frecuencia se ha sentido molesto, porque los sucesos que le han ocurrido, estaban fuera de su control.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("12.- Durante el último mes, con qué frecuencia ha pensado sobre aquellas cosas que le quedan por lograr.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("13.- Durante el último mes, con qué frecuencia ha podido controlar su tiempo.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
-
-        Question("14.- Durante el último mes, con qué frecuencia ha sentido que las dificultades se acumulan tanto que no puede superarlas.",
-            listOf("Muy estresado", "Estresado", "Neutral", "Relajado", "Muy relajado"),
-            listOf(cien, setentaycinco, cincuenta, vienticinco, cero)),
+    val stressQuestions = listOf(
+        SingleQuestion("1.- Durante el último mes, con qué frecuencia ha estado afectado por alguna situación que ocurrió inesperadamente.", opciones, valores),
+        SingleQuestion("2.- Durante el último mes, con qué frecuencia se ha sentido incapaz de controlar las cosas importantes de su vida.", opciones, valores),
+        SingleQuestion("3.- Durante el último mes, con qué frecuencia se ha sentido nervioso o estresado.", opciones, valores),
+        SingleQuestion("4.- Durante el último mes, con qué frecuencia ha manejado con éxito los pequeños problemas irritantes de su vida.", opciones, valores),
+        SingleQuestion("5.- Durante el último mes, con qué frecuencia ha sentido que ha afrontado efectivamente los cambios importantes que han estado ocurriendo en su vida.", opciones, valores),
+        SingleQuestion("6.- Durante el último mes, con qué frecuencia ha estado seguro sobre su capacidad para manejar sus problemas personales.", opciones, valores),
+        SingleQuestion("7.- Durante el último mes, con qué frecuencia ha sentido que las cosas le salen bien.", opciones, valores),
+        SingleQuestion("8.- En el último mes, con qué frecuencia ha sentido no poder afrontar todas las cosas que debía realizar.", opciones, valores),
+        SingleQuestion("9.- Durante el último mes con qué frecuencia ha podido controlar las dificultades de su vida.", opciones, valores),
+        SingleQuestion("10.- Durante el último mes, con qué frecuencia ha sentido que está al control de todo.", opciones, valores),
+        SingleQuestion("11.- Durante el último mes, con qué frecuencia se ha sentido molesto, porque los sucesos que le han ocurrido, estaban fuera de su control.", opciones, valores),
+        SingleQuestion("12.- Durante el último mes, con qué frecuencia ha pensado sobre aquellas cosas que le quedan por lograr.", opciones, valores),
+        SingleQuestion("13.- Durante el último mes, con qué frecuencia ha podido controlar su tiempo.", opciones, valores),
+        SingleQuestion("14.- Durante el último mes, con qué frecuencia ha sentido que las dificultades se acumulan tanto que no puede superarlas.", opciones, valores),
     )
 
+    val depressionQuestions = listOf(
+        SingleQuestion("1.- Durante el último mes, ¿con qué frecuencia se ha sentido desanimado o triste?", opciones, valores),
+        SingleQuestion("2.- Durante el último mes, ¿con qué frecuencia ha perdido interés en actividades que normalmente disfruta?", opciones, valores),
+        SingleQuestion("3.- Durante el último mes, ¿con qué frecuencia ha tenido problemas para dormir o ha dormido demasiado?", opciones, valores),
+        SingleQuestion("4.- Durante el último mes, ¿con qué frecuencia ha experimentado cambios en su apetito o peso?", opciones, valores),
+        SingleQuestion("5.- Durante el último mes, ¿con qué frecuencia se ha sentido cansado o con falta de energía?", opciones, valores),
+        SingleQuestion("6.- Durante el último mes, ¿con qué frecuencia ha tenido dificultades para concentrarse en tareas cotidianas?", opciones, valores),
+        SingleQuestion("7.- Durante el último mes, ¿con qué frecuencia se ha sentido inútil o culpable por cosas que han ocurrido?", opciones, valores),
+        SingleQuestion("8.- Durante el último mes, ¿con qué frecuencia ha tenido pensamientos negativos sobre usted mismo o su futuro?", opciones, valores),
+        SingleQuestion("9.- Durante el último mes, ¿con qué frecuencia se ha sentido irritable o fácilmente molesto?", opciones, valores),
+        SingleQuestion("10.- Durante el último mes, ¿con qué frecuencia ha pensado en hacerse daño o que sería mejor si no estuviera?", opciones, valores),
+        SingleQuestion("11.- Durante el último mes, ¿con qué frecuencia ha tenido dificultades para realizar actividades diarias debido a su estado de ánimo?", opciones, valores),
+        SingleQuestion("12.- Durante el último mes, ¿con qué frecuencia se ha sentido aislado o distante de otras personas?", opciones, valores),
+        SingleQuestion("13.- Durante el último mes, ¿con qué frecuencia ha sentido que nada puede animarlo?", opciones, valores),
+        SingleQuestion("14.- Durante el último mes, ¿con qué frecuencia ha sentido que su vida no tiene dirección o propósito?", opciones, valores)
+    )
+
+    val anxietyQuestions = listOf(
+        SingleQuestion("1.- Durante el último mes, ¿con qué frecuencia se ha sentido nervioso, ansioso o tenso?", opciones, valores),
+        SingleQuestion("2.- Durante el último mes, ¿con qué frecuencia no ha podido dejar de preocuparse por cosas que son poco probables que sucedan?", opciones, valores),
+        SingleQuestion("3.- Durante el último mes, ¿con qué frecuencia ha tenido ataques de pánico o miedo repentino?", opciones, valores),
+        SingleQuestion("4.- Durante el último mes, ¿con qué frecuencia se ha preocupado excesivamente por diferentes cosas?", opciones, valores),
+        SingleQuestion("5.- Durante el último mes, ¿con qué frecuencia ha tenido dificultad para relajarse?", opciones, valores),
+        SingleQuestion("6.- Durante el último mes, ¿con qué frecuencia ha estado tan inquieto que le ha sido difícil quedarse quieto?", opciones, valores),
+        SingleQuestion("7.- Durante el último mes, ¿con qué frecuencia se ha irritado o ha tenido arrebatos de enojo?", opciones, valores),
+        SingleQuestion("8.- Durante el último mes, ¿con qué frecuencia se ha sentido temeroso sin una razón clara?", opciones, valores),
+        SingleQuestion("9.- Durante el último mes, ¿con qué frecuencia ha tenido problemas para conciliar el sueño o permanecer dormido debido a la preocupación?", opciones, valores),
+        SingleQuestion("10.- Durante el último mes, ¿con qué frecuencia ha sentido miedo de que ocurra algo terrible?", opciones, valores),
+        SingleQuestion("11.- Durante el último mes, ¿con qué frecuencia ha sentido mareos, dificultad para respirar o palpitaciones sin un esfuerzo físico claro?", opciones, valores),
+        SingleQuestion("12.- Durante el último mes, ¿con qué frecuencia se ha sentido incapaz de controlar sus preocupaciones?", opciones, valores),
+        SingleQuestion("13.- Durante el último mes, ¿con qué frecuencia ha evitado situaciones que le causan ansiedad?", opciones, valores),
+        SingleQuestion("14.- Durante el último mes, ¿con qué frecuencia ha tenido la sensación de que algo malo va a pasar?", opciones, valores)
+    )
+
+    val stressTest = Test("Test de Estrés", stressQuestions)
+    val depressionTest = Test("Test de Depresión", depressionQuestions)
+    val anxietyTest = Test("Test de Ansiedad", anxietyQuestions)
+
+    private var testScores = mutableMapOf<String, Int>()
+    private var testAverages = mutableListOf<Triple<String, Int, String>>()
+
+    private var currentTestIndex = 0
     private var currentQuestionIndex = 0
     private var totalPercentage = 0
+    private val allTests = listOf(stressTest, depressionTest, anxietyTest)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -102,12 +109,16 @@ class testUser : AppCompatActivity() {
             showNextQuestion()
         }
 
-        showQuestion(questions[currentQuestionIndex])
+        showTest(allTests[currentTestIndex])
     }
 
-    private fun showQuestion(question: Question) {
-        label_question.text = "Test de estrés"
-        text_question.text = question.text
+    private fun showTest(test: Test) {
+        label_question.text = test.testName
+        showQuestion(test.questions[currentQuestionIndex])
+    }
+
+    private fun showQuestion(question: SingleQuestion) {
+        text_question.text = question.questionText
 
         rdgroup.clearCheck()
 
@@ -121,14 +132,23 @@ class testUser : AppCompatActivity() {
         val selectedOption = getSelectedOption()
 
         if (selectedOption != -1) {
-            totalPercentage += questions[currentQuestionIndex].percentages[selectedOption]
-            Toast.makeText(this, "$totalPercentage", Toast.LENGTH_SHORT).show()
+            val currentTest = allTests[currentTestIndex]
+            val currentScore = testScores.getOrElse(currentTest.testName) { 0 }
+            testScores[currentTest.testName] = currentScore + currentTest.questions[currentQuestionIndex].values[selectedOption]
+
+            totalPercentage += allTests[currentTestIndex].questions[currentQuestionIndex].values[selectedOption]
             currentQuestionIndex++
 
-            if (currentQuestionIndex < questions.size) {
-                showQuestion(questions[currentQuestionIndex])
+            if (currentQuestionIndex < allTests[currentTestIndex].questions.size) {
+                showQuestion(allTests[currentTestIndex].questions[currentQuestionIndex])
             } else {
-                showFinalResult()
+                currentTestIndex++
+                if (currentTestIndex < allTests.size) {
+                    currentQuestionIndex = 0
+                    showTest(allTests[currentTestIndex])
+                } else {
+                    showFinalResult()
+                }
             }
         } else {
             Toast.makeText(this, "Por favor, selecciona una respuesta", Toast.LENGTH_SHORT).show()
@@ -147,39 +167,70 @@ class testUser : AppCompatActivity() {
     }
 
     private fun showFinalResult() {
-        // Dividir el resultado total en cinco partes (0-56, 57-112, 113-168, 169-224, 225-280)
-        val percentageRange = totalPercentage / questions.size
+        for ((testName, score) in testScores) {
+            val average = score / allTests.first { it.testName == testName }.questions.size
+            val resultMessage = getResultMessage(average)
+            testAverages.add(Triple(testName, average, resultMessage))
+        }
 
-        // Mostrar mensaje de acuerdo a la puntuación obtenida
-        val resultMessage = when (percentageRange) {
+        goToNextActivity()
+    }
+
+    private fun goToNextActivity() {
+        val gson = Gson()
+        val testAveragesJson = gson.toJson(testAverages)
+
+        val intent = Intent(this, GraphsActivity::class.java)
+        intent.putExtra("testAverages", testAveragesJson)
+        startActivity(intent)
+    }
+
+    private fun getResultMessage(percentageRange: Int): String {
+        return when (percentageRange) {
             in 0..25 -> "Estás bien de salud"
             in 26..50 -> "Bien, pero podrías considerar gestionar el estrés"
             in 51..75 -> "Moderadamente estresado, es recomendable visitar a algun profesional"
             in 76..100 -> "Estresado, considera una cita con el psicólogo"
             else -> "Necesitas hacer una cita con alguno de nuestros psicologos"
-        }// Abrir la clase Terminos
-        val intent = Intent(this, PrincipalView::class.java)
-        intent.putExtra("resultMessage", resultMessage)
-        startActivity(intent)
-        Handler().postDelayed({
-            startActivity(intent)
-        }, 3000)
-
-
-        // Crear un AlertDialog
-        val alertDialogBuilder = AlertDialog.Builder(this)
-        alertDialogBuilder
-            .setTitle("Resultado del test de estrés")
-            .setMessage("$resultMessage\n\nResultado total: $percentageRange%")
-            .setPositiveButton("Aceptar") { _, _ ->
-                // Acciones adicionales al hacer clic en Aceptar
-                // Puedes redirigir al usuario a otra pantalla, cerrar la actividad, etc.
-            }
-            .setCancelable(false)  // No permitir que el usuario cierre el diálogo al tocar fuera de él
-
-        // Mostrar el AlertDialog
-        val alertDialog = alertDialogBuilder.create()
-        alertDialog.show()
+        }
     }
+
+//    private fun showfinalresult() {
+//        val averagepercentage = totalpercentage / alltests.sumof { it.questions.size }
+//        log.d("averagepercentage", averagepercentage.tostring())
+//        // dividir el resultado total en cinco partes (0-56, 57-112, 113-168, 169-224, 225-280)
+//        val percentagerange = 0
+//
+//        // mostrar mensaje de acuerdo a la puntuación obtenida
+//        val resultmessage = when (percentagerange) {
+//            in 0..25 -> "estás bien de salud"
+//            in 26..50 -> "bien, pero podrías considerar gestionar el estrés"
+//            in 51..75 -> "moderadamente estresado, es recomendable visitar a algun profesional"
+//            in 76..100 -> "estresado, considera una cita con el psicólogo"
+//            else -> "necesitas hacer una cita con alguno de nuestros psicologos"
+//        }// abrir la clase terminos
+//        val intent = intent(this, principalview::class.java)
+//        intent.putextra("resultmessage", resultmessage)
+//        startactivity(intent)
+//        handler().postdelayed({
+//            startactivity(intent)
+//        }, 3000)
+//
+//
+//        // crear un alertdialog
+//        val alertdialogbuilder = alertdialog.builder(this)
+//        alertdialogbuilder
+//            .settitle("resultado del test de estrés")
+//            .setmessage("$resultmessage\n\nresultado total: $percentagerange%")
+//            .setpositivebutton("aceptar") { _, _ ->
+//                // acciones adicionales al hacer clic en aceptar
+//                // puedes redirigir al usuario a otra pantalla, cerrar la actividad, etc.
+//            }
+//            .setcancelable(false)  // no permitir que el usuario cierre el diálogo al tocar fuera de él
+//
+//        // mostrar el alertdialog
+//        val alertdialog = alertdialogbuilder.create()
+//        alertdialog.show()
+//    }
 
 }
